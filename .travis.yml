@@ -18,3 +18,12 @@ script:
   - yarn run type-check
   - yarn run test
   - yarn run build
+
+deploy:
+  provider: netlify
+  site: hellomoon
+  dir: "dist/"
+  prod: true
+  edge: true
+  on:
+    branch: master
