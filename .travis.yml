@@ -22,7 +22,7 @@ script:
 deploy:
   provider: netlify
   site: "1b8fd276-1d98-4e97-a3e2-0d9c6aeda309"
-  dir: "dist/"
+  dir: "../dist/"
   prod: true
   edge: true
   on:
