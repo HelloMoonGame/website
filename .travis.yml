@@ -1,9 +1,11 @@
 language: node_js
 node_js:
-  - '10.0'
+  - node
 
 cache:
   yarn: true
+  directories:
+  - src/node_modules
 
 install:
   - cd src
