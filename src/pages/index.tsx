@@ -96,7 +96,7 @@ export const Home = (): JSX.Element => (
           View source at GitHub
         </a>
         <a
-          href="https://studio.youtube.com/channel/UCLmFLctb6jsUP-YIc3yhfCw/"
+          href="https://www.youtube.com/channel/UCLmFLctb6jsUP-YIc3yhfCw"
           className="btn btn-outline-danger ml-1"
           target="_blank"
           rel="noreferrer"
