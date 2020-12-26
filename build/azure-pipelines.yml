@@ -50,7 +50,6 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/dist'
-    Contents: 'character-api.yaml'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/dist'
 
 - task: PublishBuildArtifacts@1
