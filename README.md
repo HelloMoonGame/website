@@ -1,6 +1,9 @@
 # Hello Moon Website
 > Public website for the online life simulation game
 
+![Build status](https://img.shields.io/azure-devops/build/hellomoongame/474c3413-aef9-490b-b098-0355e6ecca46/2?style=flat-square)
+![Deploy status](https://img.shields.io/azure-devops/release/hellomoongame/474c3413-aef9-490b-b098-0355e6ecca46/2/2?style=flat-square)
+![Deploy status](https://img.shields.io/netlify/1b8fd276-1d98-4e97-a3e2-0d9c6aeda309?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues-raw/HelloMoonGame/website?style=flat-square&label=issues)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/HelloMoonGame/website?label=pull%20requests&style=flat-square)
 ![GitHub license](https://img.shields.io/github/license/HelloMoonGame/website?style=flat-square)
