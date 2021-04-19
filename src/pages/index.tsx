@@ -2,9 +2,6 @@ import Head from 'next/head'
 
 import Feature from '../components/feature'
 
-import 'bootstrap/scss/bootstrap.scss'
-import '../styles/main.scss'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faUserFriends,
@@ -40,7 +37,12 @@ export const Home = (): JSX.Element => (
     <section className="bg-img-moon text-center">
       <div className="container py-5 text-light">
         <h2 className="py-5 mt-5">Online Life Simulation Game</h2>
-        <button className="btn btn-outline-light my-5">Sign up soon!</button>
+        <a
+          href="https://game.hellomoon.nl"
+          className="btn btn-outline-light my-5"
+        >
+          Explore the alpha version!
+        </a>
       </div>
     </section>
 
@@ -53,6 +55,11 @@ export const Home = (): JSX.Element => (
           able to colonize the moon by building a major shell around it! Now, do
           you want to buy a ticket and live in peace?
         </p>
+        <div className="text-center">
+          <a href="https://game.hellomoon.nl" className="btn btn-outline-dark">
+            Yes, let&apos;s play!
+          </a>
+        </div>
       </div>
     </section>
 

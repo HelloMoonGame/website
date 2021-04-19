@@ -6,7 +6,7 @@ interface FeatureProps {
   icon
 }
 
-const Feature = ({ name, description, icon }: FeatureProps) => (
+const Feature = ({ name, description, icon }: FeatureProps): JSX.Element => (
   <div className="col-md-4 text-center pb-5">
     <div className="mb-3">
       <div className="d-inline-block p-5 bg-white rounded-circle">

@@ -29,11 +29,12 @@ exports[`Home page matches snapshot 1`] = `
       >
         Online Life Simulation Game
       </h2>
-      <button
+      <a
         class="btn btn-outline-light my-5"
+        href="https://game.hellomoon.nl"
       >
-        Sign up soon!
-      </button>
+        Explore the alpha version!
+      </a>
     </div>
   </section>
   <section>
@@ -48,6 +49,16 @@ exports[`Home page matches snapshot 1`] = `
       <p>
         Sadly, a major world war will soon end in a nuclear fight. Everything on earth will be completely destroyed. Luckily EnoughSpace Inc. was able to colonize the moon by building a major shell around it! Now, do you want to buy a ticket and live in peace?
       </p>
+      <div
+        class="text-center"
+      >
+        <a
+          class="btn btn-outline-dark"
+          href="https://game.hellomoon.nl"
+        >
+          Yes, let's play!
+        </a>
+      </div>
     </div>
   </section>
   <section
