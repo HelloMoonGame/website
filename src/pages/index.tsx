@@ -2,9 +2,6 @@ import Head from 'next/head'
 
 import Feature from '../components/feature'
 
-import 'bootstrap/scss/bootstrap.scss'
-import '../styles/main.scss'
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faUserFriends,
