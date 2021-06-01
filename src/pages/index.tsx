@@ -29,7 +29,7 @@ export const Home = (): JSX.Element => (
     <header>
       <div className="container py-5">
         <h1 className="text-center">
-          <img src="/hellomoon.svg" width="200" height="204" alt="Hello Moon" />
+          <img src="/hellomoon.svg" width="342" height="151" alt="Hello Moon" />
         </h1>
       </div>
     </header>
