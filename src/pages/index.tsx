@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 
 import Feature from '../components/feature'
 
@@ -8,116 +9,198 @@ import {
   faMoneyBill,
   faHeartbeat,
 } from '@fortawesome/free-solid-svg-icons'
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  makeStyles,
+  Theme,
+  withStyles,
+} from '@material-ui/core'
+import React from 'react'
 
 library.add(faUserFriends, faMoneyBill, faHeartbeat)
 
-export const Home = (): JSX.Element => (
-  <>
-    <Head>
-      <meta charSet="utf-8" />
-      <title>Hello Moon</title>
-      <meta
-        name="description"
-        content="Massively Multiplayer Online Life Simulation Game"
-      />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-      />
-    </Head>
+const useStyles = makeStyles({
+  backgroundImage: {
+    backgroundImage: "url('/background.jpg')",
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  squareIcon: {
+    width: '50%',
+    height: '6rem',
+  },
+  footer: {
+    boxShadow:
+      'rgb(0 0 0 / 20%) 0px -2px 1px -1px, rgb(0 0 0 / 14%) 0px -1px 1px 0px, rgb(0 0 0 / 12%) 0px -1px 3px 0px',
+  },
+})
 
-    <header>
-      <div className="container py-5">
-        <h1 className="text-center">
-          <img src="/hellomoon.svg" width="342" height="151" alt="Hello Moon" />
-        </h1>
-      </div>
-    </header>
+const ButtonOnBackground = withStyles((theme: Theme) => ({
+  root: {
+    color: theme.palette.primary.contrastText,
+    borderColor: theme.palette.primary.contrastText,
+    position: 'absolute',
+    bottom: '5%',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.contrastText,
+      color: theme.palette.primary.main,
+    },
+  },
+}))(Button)
 
-    <section className="bg-img-moon text-center">
-      <div className="container py-5 text-light">
-        <h2 className="py-5 mt-5">Online Life Simulation Game</h2>
-        <a
-          href="https://game.hellomoon.nl"
-          className="btn btn-outline-light my-5"
+export const Home = (): JSX.Element => {
+  const classes = useStyles()
+
+  return (
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <title>Hello Moon</title>
+        <meta
+          name="description"
+          content="Massively Multiplayer Online Life Simulation Game"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap"
+        />
+      </Head>
+
+      <Box
+        className={classes.backgroundImage}
+        bgcolor="primary.main"
+        color="primary.contrastText"
+        textAlign="center"
+      >
+        <Box
+          component="header"
+          bgcolor="primary.main"
+          boxShadow={1}
+          width="100%"
+          py={3}
+          px={8}
         >
+          <Image
+            src="/hellomoon.svg"
+            width={256}
+            height={113}
+            alt="Hello Moon"
+          />
+        </Box>
+        <ButtonOnBackground href="https://game.hellomoon.nl" variant="outlined">
           Explore the alpha version!
-        </a>
-      </div>
-    </section>
+        </ButtonOnBackground>
+      </Box>
 
-    <section>
-      <div className="container py-5">
-        <h2 className="text-center pb-3">Story</h2>
-        <p>
-          Sadly, a major world war will soon end in a nuclear fight. Everything
-          on earth will be completely destroyed. Luckily EnoughSpace Inc. was
-          able to colonize the moon by building a major shell around it! Now, do
-          you want to buy a ticket and live in peace?
-        </p>
-        <div className="text-center">
-          <a href="https://game.hellomoon.nl" className="btn btn-outline-dark">
-            Yes, let&apos;s play!
-          </a>
-        </div>
-      </div>
-    </section>
+      <Box component="section" py={4} textAlign="center">
+        <Container maxWidth="sm">
+          <h2>Story</h2>
+          <p>
+            Sadly, a major world war will soon end in a nuclear fight.
+            Everything on earth will be completely destroyed. Luckily
+            EnoughSpace Inc. was able to colonize the moon by building a major
+            shell around it! Now, do you want to buy a ticket and live in peace?
+          </p>
+          <Box py={3}>
+            <Button
+              href="https://game.hellomoon.nl"
+              variant="contained"
+              color="primary"
+            >
+              Yes, let&apos;s play!
+            </Button>
+          </Box>
+        </Container>
+      </Box>
 
-    <section className="bg-light">
-      <div className="container pt-5">
-        <h2 className="text-center pb-3">Features</h2>
-        <div className="row">
-          <Feature
-            name="Social"
-            icon="user-friends"
-            description="Find new friends and work together!"
-          />
-          <Feature
-            name="Economy"
-            icon="money-bill"
-            description="Earn money by working for other players and build your own business."
-          />
-          <Feature
-            name="Life"
-            icon="heartbeat"
-            description="Eat, drink, sleep to stay alive."
-          />
-        </div>
-      </div>
-    </section>
+      <Box
+        component="section"
+        py={4}
+        textAlign="center"
+        bgcolor="primary.main"
+        color="primary.contrastText"
+        boxShadow={1}
+      >
+        <h2>Features</h2>
+        <Container>
+          <Grid container spacing={3}>
+            <Feature
+              name="Social"
+              description="Find new friends and work together!"
+              icon={faUserFriends}
+            />
+            <Feature
+              name="Economy"
+              description="Earn money by working for other players and build your own
+              business."
+              icon={faMoneyBill}
+            />
+            <Feature
+              name="Life"
+              description="Eat, drink, sleep to stay alive."
+              icon={faHeartbeat}
+            />
+          </Grid>
+        </Container>
+      </Box>
 
-    <section>
-      <div className="container text-center py-5">
-        <h2 className="pb-3">Development</h2>
-        <p className="pb-3">
-          This game is currently under development and will be available to play
-          as soon as possible. All code is open-source and open for Pull
-          Requests. Please subscribe to our YouTube channel to keep updated!
-        </p>
-        <a
-          href="https://github.com/HelloMoonGame"
-          className="btn btn-outline-dark"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View source at GitHub
-        </a>
-        &nbsp;
-        <a
-          href="https://www.youtube.com/channel/UCLmFLctb6jsUP-YIc3yhfCw"
-          className="btn btn-outline-danger ml-1"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Follow development at YouTube
-        </a>
-      </div>
-    </section>
+      <Box component="section" py={4} textAlign="center">
+        <Container maxWidth="sm">
+          <h2>Development</h2>
+          <p>
+            This game is currently under development and will be available to
+            play as soon as possible. All code is open-source and open for Pull
+            Requests. Please subscribe to our YouTube channel to keep updated!
+          </p>
+          <Box py={3}>
+            <Button
+              href="https://github.com/HelloMoonGame"
+              variant="outlined"
+              color="primary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View source at GitHub
+            </Button>
+            &nbsp;
+            <Button
+              href="https://www.youtube.com/channel/UCLmFLctb6jsUP-YIc3yhfCw"
+              variant="outlined"
+              color="secondary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Follow development at YouTube
+            </Button>
+          </Box>
+        </Container>
+      </Box>
 
-    <footer className="bg-dark text-white">
-      <div className="container py-3 text-center">&copy; 2020 Hello Moon</div>
-    </footer>
-  </>
-)
+      <Box
+        component="footer"
+        py={2}
+        textAlign="center"
+        bgcolor="primary.main"
+        color="primary.contrastText"
+        className={classes.footer}
+      >
+        &copy; 2020 Hello Moon
+      </Box>
+    </>
+  )
+}
 
 export default Home
