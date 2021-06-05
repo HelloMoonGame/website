@@ -27,19 +27,11 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    '&:after': {
-      content: "''",
-      position: 'absolute',
-      zIndex: -1,
-      width: '100%',
-      height: '100%',
-      backgroundImage:
-        'url(' + require('./../public/background.jpg?format=webp') + ')',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-    },
+    backgroundImage:
+      'url(' + require('./../public/background.jpg?format=webp') + ')',
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'auto 100vh',
+    backgroundPosition: 'center top',
   },
   squareIcon: {
     width: '50%',
@@ -56,7 +48,7 @@ const ButtonOnBackground = withStyles((theme: Theme) => ({
     color: theme.palette.primary.contrastText,
     borderColor: theme.palette.primary.contrastText,
     position: 'absolute',
-    bottom: '5%',
+    bottom: '10%',
     '&:hover': {
       backgroundColor: theme.palette.primary.contrastText,
       color: theme.palette.primary.main,
