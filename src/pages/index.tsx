@@ -23,7 +23,8 @@ library.add(faUserFriends, faMoneyBill, faHeartbeat)
 
 const useStyles = makeStyles({
   backgroundImage: {
-    backgroundImage: "url('/background.jpg')",
+    backgroundImage:
+      'url(' + require('./../public/background.jpg?format=webp') + ')',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
@@ -92,7 +93,12 @@ export const Home = (): JSX.Element => {
           py={3}
           px={8}
         >
-          <img src="/hellomoon.svg" width={256} height={113} alt="Hello Moon" />
+          <img
+            src={require('./../public/hellomoon.svg')}
+            width={256}
+            height={113}
+            alt="Hello Moon"
+          />
         </Box>
         <ButtonOnBackground href="https://game.hellomoon.nl" variant="outlined">
           Explore the alpha version!
