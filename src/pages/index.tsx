@@ -23,18 +23,22 @@ library.add(faUserFriends, faMoneyBill, faHeartbeat)
 
 const useStyles = makeStyles({
   backgroundImage: {
-    backgroundImage:
-      'url(' + require('./../public/background.jpg?format=webp') + ')',
-    backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    '@supports (-webkit-overflow-scrolling: touch)': {
-      backgroundAttachment: 'scroll',
+    '&:after': {
+      content: "''",
+      position: 'absolute',
+      zIndex: -1,
+      width: '100%',
+      height: '100%',
+      backgroundImage:
+        'url(' + require('./../public/background.jpg?format=webp') + ')',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed',
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
     },
   },
   squareIcon: {
@@ -82,12 +86,7 @@ export const Home = (): JSX.Element => {
         />
       </Head>
 
-      <Box
-        className={classes.backgroundImage}
-        bgcolor="primary.main"
-        color="primary.contrastText"
-        textAlign="center"
-      >
+      <Box className={classes.backgroundImage} textAlign="center">
         <Box
           component="header"
           bgcolor="primary.main"
