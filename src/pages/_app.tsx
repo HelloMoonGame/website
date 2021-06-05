@@ -1,13 +1,22 @@
 import React from 'react'
 import { AppProps } from 'next/app'
+import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core'
 
-import 'bootstrap/scss/bootstrap.scss'
-import '../styles/main.scss'
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#0b3663',
+    },
+  },
+})
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
-      <Component {...pageProps} />
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
