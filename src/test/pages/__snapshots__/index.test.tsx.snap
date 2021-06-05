@@ -3,33 +3,49 @@
 exports[`Home page matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiBox-root MuiBox-root-4 makeStyles-backgroundImage-1"
+    class="react-parallax "
+    style="position: relative; overflow: hidden;"
   >
-    <header
-      class="MuiBox-root MuiBox-root-5"
+    <img
+      alt="Moon in the sky"
+      class="react-parallax-bgimage"
+      src="test-file-stub"
+      style="position: absolute; left: 50%; transform: translate3d(-50%, 0, 0);"
+    />
+    <div
+      class="react-parallax-content"
+      style="position: relative;"
     >
-      <img
-        alt="Hello Moon"
-        height="113"
-        src="test-file-stub"
-        width="256"
-      />
-    </header>
-    <a
-      aria-disabled="false"
-      class="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-6 MuiButton-outlined"
-      href="https://game.hellomoon.nl"
-      tabindex="0"
-    >
-      <span
-        class="MuiButton-label"
+      <div
+        class="MuiBox-root MuiBox-root-5 makeStyles-backgroundImage-1"
       >
-        Explore the alpha version!
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </a>
+        <header
+          class="MuiBox-root MuiBox-root-6"
+        >
+          <img
+            alt="Hello Moon"
+            height="113"
+            src="test-file-stub"
+            width="256"
+          />
+        </header>
+        <a
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-2"
+          href="https://game.hellomoon.nl"
+          tabindex="0"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Explore the alpha version!
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </a>
+      </div>
+    </div>
   </div>
   <section
     class="MuiBox-root MuiBox-root-7"
@@ -208,7 +224,7 @@ exports[`Home page matches snapshot 1`] = `
     </div>
   </section>
   <footer
-    class="MuiBox-root MuiBox-root-13 makeStyles-footer-3"
+    class="MuiBox-root MuiBox-root-13 makeStyles-footer-4"
   >
     © 2020 Hello Moon
   </footer>
