@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 
 import Feature from '../components/feature'
 
@@ -93,12 +92,7 @@ export const Home = (): JSX.Element => {
           py={3}
           px={8}
         >
-          <Image
-            src="/hellomoon.svg"
-            width={256}
-            height={113}
-            alt="Hello Moon"
-          />
+          <img src="/hellomoon.svg" width={256} height={113} alt="Hello Moon" />
         </Box>
         <ButtonOnBackground href="https://game.hellomoon.nl" variant="outlined">
           Explore the alpha version!
