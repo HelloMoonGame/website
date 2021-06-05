@@ -33,6 +33,9 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    '@supports (-webkit-overflow-scrolling: touch)': {
+      backgroundAttachment: 'scroll',
+    },
   },
   squareIcon: {
     width: '50%',
