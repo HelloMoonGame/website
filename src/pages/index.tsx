@@ -15,24 +15,27 @@ import {
   Grid,
   makeStyles,
   Theme,
-  withStyles,
 } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Parallax } from 'react-parallax'
 
 library.add(faUserFriends, faMoneyBill, faHeartbeat)
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   backgroundImage: {
-    backgroundImage:
-      'url(' + require('./../public/background.jpg?format=webp') + ')',
-    backgroundRepeat: 'no-repeat',
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  button: {
+    color: theme.palette.primary.contrastText,
+    borderColor: theme.palette.primary.contrastText,
+    position: 'absolute',
+    bottom: '10%',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.contrastText,
+      color: theme.palette.primary.main,
+    },
   },
   squareIcon: {
     width: '50%',
@@ -42,23 +45,21 @@ const useStyles = makeStyles({
     boxShadow:
       'rgb(0 0 0 / 20%) 0px -2px 1px -1px, rgb(0 0 0 / 14%) 0px -1px 1px 0px, rgb(0 0 0 / 12%) 0px -1px 3px 0px',
   },
-})
-
-const ButtonOnBackground = withStyles((theme: Theme) => ({
-  root: {
-    color: theme.palette.primary.contrastText,
-    borderColor: theme.palette.primary.contrastText,
-    position: 'absolute',
-    bottom: '5%',
-    '&:hover': {
-      backgroundColor: theme.palette.primary.contrastText,
-      color: theme.palette.primary.main,
-    },
-  },
-}))(Button)
+}))
 
 export const Home = (): JSX.Element => {
   const classes = useStyles()
+  const [windowHeight, setWindowHeight] = useState('100vh')
+
+  const fetchWindowHeight = () => {
+    setWindowHeight(window.innerHeight + 'px')
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', fetchWindowHeight)
+    fetchWindowHeight()
+    return () => window.removeEventListener('resize', fetchWindowHeight)
+  }, [])
 
   return (
     <>
@@ -79,31 +80,41 @@ export const Home = (): JSX.Element => {
         />
       </Head>
 
-      <Box
-        className={classes.backgroundImage}
-        bgcolor="primary.main"
-        color="primary.contrastText"
-        textAlign="center"
+      <Parallax
+        bgImage={require('./../public/background.jpg?format=webp')}
+        bgImageAlt="Moon in the sky"
+        blur={{ min: -3, max: 3 }}
+        strength={300}
       >
         <Box
-          component="header"
-          bgcolor="primary.main"
-          boxShadow={1}
-          width="100%"
-          py={3}
-          px={8}
+          className={classes.backgroundImage}
+          height={windowHeight}
+          textAlign="center"
         >
-          <img
-            src={require('./../public/hellomoon.svg')}
-            width={256}
-            height={113}
-            alt="Hello Moon"
-          />
+          <Box
+            component="header"
+            bgcolor="primary.main"
+            boxShadow={1}
+            width="100%"
+            py={3}
+            px={8}
+          >
+            <img
+              src={require('./../public/hellomoon.svg')}
+              width={256}
+              height={113}
+              alt="Hello Moon"
+            />
+          </Box>
+          <Button
+            href="https://game.hellomoon.nl"
+            variant="outlined"
+            className={classes.button}
+          >
+            Explore the alpha version!
+          </Button>
         </Box>
-        <ButtonOnBackground href="https://game.hellomoon.nl" variant="outlined">
-          Explore the alpha version!
-        </ButtonOnBackground>
-      </Box>
+      </Parallax>
 
       <Box component="section" py={4} textAlign="center">
         <Container maxWidth="sm">
