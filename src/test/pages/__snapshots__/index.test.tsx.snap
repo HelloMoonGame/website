@@ -11,7 +11,7 @@ exports[`Home page matches snapshot 1`] = `
       <img
         alt="Hello Moon"
         height="113"
-        src="/hellomoon.svg"
+        src="test-file-stub"
         width="256"
       />
     </header>
