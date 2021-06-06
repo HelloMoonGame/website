@@ -47,6 +47,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
+const backgroundImage = require('./../public/background.jpg?resize&sizes[]=320,sizes[]=640,sizes[]=960,sizes[]=1200,sizes[]=1920,sizes[]=2400,sizes[]=3840&format=webp')
+
 export const Home = (): JSX.Element => {
   const classes = useStyles()
   const [windowHeight, setWindowHeight] = useState('100vh')
@@ -81,24 +83,14 @@ export const Home = (): JSX.Element => {
       </Head>
 
       <Parallax
-        bgImage={require('./../public/background.jpg?format=webp')}
+        bgImage={backgroundImage.src}
+        bgImageSrcSet={backgroundImage.srcSet}
         bgImageAlt="Moon in the sky"
         blur={{ min: -3, max: 3 }}
         strength={300}
       >
-        <Box
-          className={classes.backgroundImage}
-          height={windowHeight}
-          textAlign="center"
-        >
-          <Box
-            component="header"
-            bgcolor="primary.main"
-            boxShadow={1}
-            width="100%"
-            py={3}
-            px={8}
-          >
+        <Box className={classes.backgroundImage} height={windowHeight}>
+          <Box component="header" p={8}>
             <img
               src={require('./../public/hellomoon.svg')}
               width={256}

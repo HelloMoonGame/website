@@ -1,8 +1,21 @@
+const withPlugins = require('next-compose-plugins')
 const withOptimizedImages = require('next-optimized-images')
 
-module.exports = withOptimizedImages({
-  optimizeImagesInDev: true,
-  future: {
-    webpack5: true,
-  },
-})
+module.exports = withPlugins(
+  [
+    [
+      withOptimizedImages,
+      {
+        optimizeImagesInDev: true,
+        responsive: {
+          adapter: require('responsive-loader/sharp'),
+        },
+      },
+    ],
+  ],
+  {
+    future: {
+      webpack5: true,
+    },
+  }
+)
