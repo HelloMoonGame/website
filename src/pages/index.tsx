@@ -86,19 +86,8 @@ export const Home = (): JSX.Element => {
         blur={{ min: -3, max: 3 }}
         strength={300}
       >
-        <Box
-          className={classes.backgroundImage}
-          height={windowHeight}
-          textAlign="center"
-        >
-          <Box
-            component="header"
-            bgcolor="primary.main"
-            boxShadow={1}
-            width="100%"
-            py={3}
-            px={8}
-          >
+        <Box className={classes.backgroundImage} height={windowHeight}>
+          <Box component="header" p={8}>
             <img
               src={require('./../public/hellomoon.svg')}
               width={256}
