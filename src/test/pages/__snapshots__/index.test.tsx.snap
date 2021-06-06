@@ -6,12 +6,6 @@ exports[`Home page matches snapshot 1`] = `
     class="react-parallax "
     style="position: relative; overflow: hidden;"
   >
-    <img
-      alt="Moon in the sky"
-      class="react-parallax-bgimage"
-      src="test-file-stub"
-      style="position: absolute; left: 50%; transform: translate3d(-50%, 0, 0);"
-    />
     <div
       class="react-parallax-content"
       style="position: relative;"
